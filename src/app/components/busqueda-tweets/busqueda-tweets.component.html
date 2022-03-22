@@ -1,0 +1,57 @@
+<div class="card col-sm-12 col-12 navbar-x"  >
+    <div class="card-body ">
+      <div class="row d-flex">
+        <img src={{posts[0].picture.data.url}} class="rounded float-start" style="width:50px; height: 50px;">
+        <h5 class="card-title col-6 col-sm-6 ms-auto mt-0 mb-0">{{posts[0].name}}</h5>
+        <div class="form-group col-4 col-sm-4">
+          <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" ngNativeValidate>
+
+          <div class="input-group mb-3">
+              <button class="btn btn-info" type="submit">🔎</button>
+            <input type="text" class="form-control" ngModel #pokemon="ngModel"  name="pokemon" id="pokemon" aria-label="Pokemon" aria-describedby="basic-addon1">
+          </div>
+        </form>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+<br>
+<br>
+  <div class=" d-flex row">
+    <div class="col-1"></div>
+    <div class="card col-12  col-sm-10 shadow ms-auto ">
+      
+        <div class="card-body">
+          <h5 class="card-title">Info pokemon</h5>
+          <table class="table table-hover">
+            <thead>
+                <tr >
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Habilidades</th>
+                  <th scope="col">Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let poke of pokemons">
+                  <th scope="row">{{poke.order}}</th>
+                  <td>{{poke.name}}</td>
+                  <td><a *ngFor="let abi of poke.abilities">{{abi.ability.name}} </a></td>
+                  <td><a *ngFor="let tipo of poke.types">{{tipo.type.name}} </a></td>
+                </tr>
+                
+              </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="col-1"></div>  
+
+  </div>
+
+
